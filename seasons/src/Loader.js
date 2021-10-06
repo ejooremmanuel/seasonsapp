@@ -13,13 +13,10 @@ const useStyles = makeStyles((theme) => ({
 export default function SimpleBackdrop() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
-  const handleClose = () => {
-    setOpen(false);
-  };
 
   return (
     <div>
-      <Backdrop className={classes.backdrop} open={open} onClick={handleClose}>
+      <Backdrop className={classes.backdrop} open={open}>
         <Typography variant="h4">Allow location to continue...</Typography>
         <CircularProgress color="inherit" />
       </Backdrop>
