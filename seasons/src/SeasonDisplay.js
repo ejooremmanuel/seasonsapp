@@ -1,11 +1,19 @@
 import React from "react";
-import { Typography } from "@material-ui/core";
+import { Typography, Container } from "@material-ui/core";
 
-const SeasonDisplay = () => {
+const season = (lat, month) => {
+  if (month > 2 && month < 9) {
+    return lat > 0 ? "Summer" : "Winter";
+  }
+  return lat < 0 ? "Winter" : "Summer";
+};
+
+const SeasonDisplay = ({ error, lat }) => {
+  season(lat, new Date().getMonth());
   return (
-    <div>
-      <Typography variant="h5">Seasons</Typography>
-    </div>
+    <Container>
+      <Typography>Season</Typography>
+    </Container>
   );
 };
 
