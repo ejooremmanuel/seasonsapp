@@ -13,24 +13,16 @@ export default class App extends Component {
       (err) => this.setState({ error: err.message })
     );
   }
-  render() {
+
+  renderContent() {
     if (this.state.lat && !this.state.error)
       return <SeasonDisplay lat={this.state.lat} />;
     if (!this.state.lat && this.state.error)
-      return (
-        <div
-          style={{
-            width: "60vw",
-            position: "fixed",
-            top: "20vh",
-            right: "50vh",
-            fontSize: "30px",
-          }}
-        >
-          <Error>{this.state.error} </Error>
-        </div>
-      );
-
+      return <Error>{this.state.error} </Error>;
     return <Loader />;
+  }
+
+  render() {
+    return <> {this.renderContent()}</>;
   }
 }
