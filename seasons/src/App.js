@@ -1,5 +1,7 @@
+import { Typography, Container } from "@material-ui/core";
 import React, { Component } from "react";
 import SeasonDisplay from "./SeasonDisplay";
+import Loader from "./Loader";
 
 export default class App extends Component {
   // eslint-disable-next-line no-useless-constructor
@@ -17,11 +19,6 @@ export default class App extends Component {
     if (!this.state.lat && this.state.error)
       return <SeasonDisplay error={this.state.error} />;
 
-    return (
-      <div>
-        <SeasonDisplay />
-        <h2>Loading...</h2>
-      </div>
-    );
+    return <Loader />;
   }
 }
