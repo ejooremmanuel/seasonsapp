@@ -37,9 +37,9 @@ const season = (lat, month, error) => {
   }
 };
 
-const SeasonDisplay = ({ lat }) => {
+const SeasonDisplay = ({ lat, error }) => {
   const classes = useStyles();
-  let showSeason = season(lat, new Date().getMonth());
+  let showSeason = season(lat, new Date().getMonth(), error);
   const seasonConfig = {
     Summer: (
       <div
@@ -61,6 +61,7 @@ const SeasonDisplay = ({ lat }) => {
         <AcUnitIcon fontSize="large" className={classes.iconRight} />
       </div>
     ),
+    error: <Typography variant="h2">{error}</Typography>,
   };
   return <>{seasonConfig[showSeason]}</>;
 };
